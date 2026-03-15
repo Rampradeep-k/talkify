@@ -3,7 +3,6 @@ export default function MessageBubble({ role, content }) {
 
   return (
     <div className={`flex items-end gap-2 mb-4 ${isUser ? "flex-row-reverse" : "flex-row"}`}>
-      {/* Avatar */}
       <div
         className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0
           ${isUser ? "bg-blue-500" : "bg-emerald-500"}`}
