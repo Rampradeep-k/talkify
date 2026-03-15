@@ -11,7 +11,6 @@ export default function MessageBubble({ role, content }) {
         {isUser ? "U" : "GROK"}
       </div>
 
-      {/* Bubble */}
       <div
         className={`max-w-[75%] sm:max-w-[65%] px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap break-words text-left
           ${isUser
