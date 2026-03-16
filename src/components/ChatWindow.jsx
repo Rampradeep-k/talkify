@@ -70,15 +70,13 @@ export default function ChatWindow() {
 
         .chat-page {
           display: flex;
-          height: 100vh;
-          width: 100vw;
+          height: 100%;
+          height: 100dvh;
+          width: 100%;
           background: #111114;
           font-family: 'Nunito', sans-serif;
           color: #f0f0f0;
           overflow: hidden;
-          position: fixed;
-          top: 0;
-          left: 0;
         }
 
         /* ── Sidebar ── */
@@ -192,8 +190,10 @@ export default function ChatWindow() {
           flex-direction: column;
           flex: 1;
           min-width: 0;
+          min-height: 0;
           height: 100%;
           background: #111114;
+          overflow: hidden;
         }
 
         /* ── Header ── */
@@ -269,12 +269,14 @@ export default function ChatWindow() {
         /* ── Messages ── */
         .messages-scroll {
           flex: 1;
+          min-height: 0;
           overflow-y: auto;
           overflow-x: hidden;
           display: flex;
           flex-direction: column;
           scrollbar-width: thin;
           scrollbar-color: rgba(255,255,255,0.1) transparent;
+          -webkit-overflow-scrolling: touch;
         }
         .messages-scroll::-webkit-scrollbar { width: 4px; }
         .messages-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -473,9 +475,12 @@ export default function ChatWindow() {
         /* ── Input footer ── */
         .input-footer {
           padding: 12px 24px 18px;
+          padding-bottom: max(18px, env(safe-area-inset-bottom));
           background: #111114;
           flex-shrink: 0;
           border-top: 1px solid rgba(255,255,255,0.06);
+          position: relative;
+          z-index: 10;
         }
         .input-footer-inner {
           max-width: 820px;
@@ -516,7 +521,7 @@ export default function ChatWindow() {
         /* ── Responsive ── */
         @media (max-width: 639px) {
           .messages-inner { padding: 14px 12px 10px; }
-          .input-footer { padding: 8px 12px 14px; }
+          .input-footer { padding: 8px 12px max(14px, env(safe-area-inset-bottom)); }
           .bubble { font-size: 14px; max-width: 82%; }
           .chat-header { padding: 0 14px; }
         }
@@ -596,12 +601,12 @@ export default function ChatWindow() {
                 </svg>
                 New Chat
               </button>
-             {/*  <button className="header-icon-btn" title="Search">
+              <button className="header-icon-btn" title="Search">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="11" cy="11" r="8" />
                   <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-              </button> */}
+              </button>
               <button className="header-icon-btn" title="More options">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="5" r="1.2" fill="currentColor" />
