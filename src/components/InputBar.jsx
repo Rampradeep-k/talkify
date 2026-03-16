@@ -32,7 +32,7 @@ export default function InputBar({ onSend, disabled }) {
       <style>{`
         .inputbar-wrap {
           display: flex;
-          align-items: flex-end;
+          align-items: center;
           gap: 8px;
           background: #1c1c24;
           border: 1.5px solid rgba(255,255,255,0.85);
@@ -60,6 +60,7 @@ export default function InputBar({ onSend, disabled }) {
           overflow-y: auto;
           scrollbar-width: none;
           padding: 0;
+          align-self: center;
         }
         .inputbar-textarea::placeholder { color: rgba(255,255,255,0.4); }
         .inputbar-textarea::-webkit-scrollbar { display: none; }
@@ -146,6 +147,7 @@ export default function InputBar({ onSend, disabled }) {
         </button>
       </div>
 
+      <p className="inputbar-hint">Enter to send · Shift+Enter for new line</p>
     </>
   );
 }
